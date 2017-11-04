@@ -80,10 +80,6 @@ start_link(Id) ->
 %% gen_statem:start_link/[3,4], this function is called by the new
 %% process to initialize.
 %%
-%% @spec init(Args) -> {CallbackMode, StateName, State} |
-%%                     {CallbackMode, StateName, State, Actions} |
-%%                     ignore |
-%%                     {stop, StopReason}
 %% @end
 %%--------------------------------------------------------------------
 init([Id]) ->
@@ -244,8 +240,6 @@ terminate(Reason, _StateName, _State) ->
 %% @doc
 %% Convert process state when code is changed
 %%
-%% @spec code_change(OldVsn, StateName, State, Extra) ->
-%%                   {ok, StateName, NewState}
 %% @end
 code_change(_OldVsn, StateName, State, _Extra) ->
     {ok, StateName, State}.
