@@ -15,5 +15,6 @@ logs
 _build
 .idea
 rebar3.crashdump
+doc
 
 tags
