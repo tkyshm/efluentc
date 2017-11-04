@@ -1,0 +1,19 @@
+language: erlang
+otp_release:
+  - 19.0
+  - 20.0
+  - latest
+
+cache:
+  directories:
+    - _build
+
+before_script:
+  - git clone https://github.com/inaka/elvis
+  - cd elvis
+  - rebar3 escriptize
+  - sudo cp -r _build/default/bin/elvis /usr/local/bin
+  - cd -
+  - rebar3 compile
+
+script: make test

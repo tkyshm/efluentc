@@ -1,0 +1,16 @@
+{application, efluentc,
+ [{description, "fluentd client for Erlang"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { efluentc_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, ["Takuya Yoshimrua"]},
+  {licenses, ["Apache 2.0"]},
+  {links, [{"Github", "https://github.com/tkyshm/efluentc"}]}
+ ]}.

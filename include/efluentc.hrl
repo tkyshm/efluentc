@@ -1,0 +1,1 @@
+-define(DEFAULT_WORKER_SIZE, 2).
