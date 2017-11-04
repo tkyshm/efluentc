@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/tkyshm/efluentc.svg?branch=master)](https://travis-ci.org/tkyshm/efluentc)
 
-[efluentc](https://github.com/tkyshm/efluentc)
+[efluentc](https://hex.pm/packages/efluentc)
 =====
 
 
