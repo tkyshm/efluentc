@@ -2,7 +2,7 @@ language: erlang
 otp_release:
   - 19.0
   - 20.0
-  - latest
+  - 20.1.4
 
 cache:
   directories:
