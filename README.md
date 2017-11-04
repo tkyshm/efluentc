@@ -1,7 +1,6 @@
-efluentc
+[efluentc](https://github.com/tkyshm/efluentc)
 =====
 
-documentation: []()
 
 efluentc is the Client OTP application for Fluentd.
 
