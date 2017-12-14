@@ -1,3 +1,4 @@
+[![hex.pm version](https://img.shields.io/hexpm/v/ltsv.svg)](https://hex.pm/packages/efluentc)
 [![Build Status](https://travis-ci.org/tkyshm/efluentc.svg?branch=master)](https://travis-ci.org/tkyshm/efluentc)
 
 [efluentc](https://hex.pm/packages/efluentc)
