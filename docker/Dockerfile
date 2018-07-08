@@ -1,4 +1,4 @@
-FROM fluent/fluentd:latest
+FROM fluent/fluentd:v1.2.2
 MAINTAINER tkyshm
 
 ADD fluent.conf /fluentd/etc/fluent.conf

@@ -245,20 +245,12 @@ code_change(_OldVsn, StateName, State, _Extra) ->
     {ok, StateName, State}.
 
 % @private
-encode_msg(Tag, Data) when is_binary(Tag) and is_binary(Data) ->
+encode_msg(Tag, Data) when is_binary(Tag) ->
     {Msec, Sec, _} = os:timestamp(),
     Package = [Tag, Msec*1000000+Sec, Data],
     msgpack:pack(Package, []);
-encode_msg(Tag, Data) when is_binary(Tag) and is_list(Data) ->
-    encode_msg(Tag, list_to_binary(Data));
-encode_msg(Tag, Data) when is_binary(Tag) and is_map(Data) ->
-    encode_msg(Tag, jiffy:encode(Data));
-encode_msg(Tag, Data) when is_atom(Tag) and is_binary(Data) ->
-    encode_msg(atom_to_binary(Tag, latin1), Data);
-encode_msg(Tag, Data) when is_atom(Tag) and is_list(Data) ->
-    encode_msg(atom_to_binary(Tag, latin1), list_to_binary(Data));
-encode_msg(Tag, Data) when is_atom(Tag) and is_map(Data) ->
-    encode_msg(atom_to_binary(Tag, latin1), jiffy:encode(Data)).
+encode_msg(Tag, Data) when is_atom(Tag) ->
+    encode_msg(atom_to_binary(Tag, latin1), Data).
 
 % @private
 try_connect(State = #state{buffer = Buffs}) when byte_size(Buffs) > 0 ->
