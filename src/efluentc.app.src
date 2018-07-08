@@ -1,6 +1,6 @@
 {application, efluentc,
  [{description, "fluentd client for Erlang"},
-  {vsn, "0.1.0"},
+  {vsn, git},
   {registered, []},
   {mod, { efluentc_app, []}},
   {applications,
