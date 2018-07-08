@@ -119,12 +119,12 @@ t_post(Config) ->
     PostTestFn =
     fun(Tag, Msg) ->
             efluentc:post(Tag, Msg),
-            {BinTag, BinMsg} = convert_tag_msg(Tag, Msg),
+            {WantTag, WantMsg} = convert_tag_msg(Tag, Msg),
             receive
                 {_, RecvMsg} ->
-                    {ok, [GotTag, _, GotMsg]} = msgpack:unpack(RecvMsg),
-                    GotTag = BinTag,
-                    GotMsg = BinMsg
+                    {ok, [GotTag, _, GotMsg]} = msgpack:unpack(RecvMsg, [{unpack_str, as_binary}]),
+                    GotTag = WantTag,
+                    GotMsg = WantMsg
             after 3000 ->
                 ct:fail(timeout_receive)
             end
@@ -181,8 +181,7 @@ convert_tag_msg(Tag, Msg) when is_atom(Tag) and is_list(Msg) ->
     {BinTag, BinMsg};
 convert_tag_msg(Tag, Msg) when is_atom(Tag) and is_map(Msg) ->
     BinTag = atom_to_binary(Tag, latin1),
-    BinMsg = jiffy:encode(Msg),
-    {BinTag, BinMsg};
+    {BinTag, Msg};
 convert_tag_msg(Tag, Msg) when is_atom(Tag) ->
     BinTag = atom_to_binary(Tag, latin1),
     {BinTag, Msg};
@@ -190,7 +189,6 @@ convert_tag_msg(Tag, Msg) when is_list(Msg) ->
     BinMsg = list_to_binary(Msg),
     {Tag, BinMsg};
 convert_tag_msg(Tag, Msg) when is_map(Msg) ->
-    BinMsg = jiffy:encode(Msg),
-    {Tag, BinMsg};
+    {Tag, Msg};
 convert_tag_msg(Tag, Msg) ->
     {Tag, Msg}.

@@ -1,8 +1,6 @@
 {"1.1.0",
-[{<<"jiffy">>,{pkg,<<"jiffy">>,<<"0.14.11">>},0},
- {<<"msgpack">>,{pkg,<<"msgpack">>,<<"0.7.0">>},0}]}.
+[{<<"msgpack">>,{pkg,<<"msgpack">>,<<"0.7.0">>},0}]}.
 [
 {pkg_hash,[
- {<<"jiffy">>, <<"919A87D491C5A6B5E3BBC27FAFEDC3A0761CA0B4C405394F121F582FD4E3F0E5">>},
  {<<"msgpack">>, <<"128AE0A2227C7E7A2847C0F0F73551C268464F8C1EE96BFFB920BC0A5712B295">>}]}
 ].
